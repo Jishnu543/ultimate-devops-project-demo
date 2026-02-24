@@ -1,47 +1,32 @@
-# Microservices Infrastructure Lab (DevOps Demo)
-**Project Lead: Jishnu Jayachandran**
+# Microservices Infrastructure Implementation Lab
+**Lead Engineer:** Jishnu Jayachandran
+**Status:** Implementation Complete / Resources Decommissioned
 
-## 🚀 Project Overview
-This is a comprehensive Microservices-based project designed to demonstrate production-grade DevOps practices. It features a polyglot architecture with services written in **Python, Go, Java, Node.js, C++, and Ruby**, utilizing **gRPC** for high-performance communication.
+## 📝 Project Objective
+The goal of this project was to deploy and manage a high-scale microservices environment. I used this lab to master the interaction between polyglot services and to practice the full DevOps lifecycle—from initial containerization to final resource cleanup.
 
-## 🏗️ System Architecture
-The application is a web-based e-commerce platform consisting of the following core components:
+## 🛠️ My Technical Implementation
+I followed a strict workflow to ensure the stability of the 11 microservices:
+* **Container Strategy:** Verified Dockerfile efficiency for services in Python, Go, and Rust.
+* **Orchestration:** Managed the cluster using Kubernetes manifests, focusing on Service discovery and Ingress routing.
+* **Communication:** Validated gRPC connectivity between the frontend and back-end services.
+* **Asynchronous Flow:** Observed Kafka message passing during the checkout-to-accounting pipeline.
 
-| Service | Language | Description |
-| :--- | :--- | :--- |
-| **Frontend** | Next.js | User-facing web interface. |
-| **Cart Service** | .NET | Manages user shopping carts. |
-| **Product Catalog** | Go | Provides product metadata. |
-| **Currency Service** | C++ | Handles real-time currency conversion. |
-| **Payment Service** | Node.js | Processes secure transactions. |
-| **Shipping Service** | Rust | Calculates shipping rates/tracking. |
-| **Email Service** | Ruby | Sends order confirmations. |
-| **Recommendation** | Python | Uses AI/ML logic for product suggestions. |
 
-## 🛠️ DevOps & Infrastructure Stack
-* **Containerization:** All services are Dockerized for consistency across environments.
-* **Orchestration:** Includes production-ready **Kubernetes (K8s)** manifests.
-* **CI/CD:** Integrated with GitHub Actions for automated testing and deployment.
-* **Observability:** Full stack integration with **OpenTelemetry**, **Prometheus**, **Grafana**, and **Jaeger** for distributed tracing.
-* **Messaging:** Uses **Kafka** for asynchronous communication between the checkout and accounting services.
 
-## 🔧 Deployment Guide
-### 1. Local Development (Docker Compose)
-Run the entire stack locally with a single command:
-```bash
-docker-compose up -d
-```
+## 📊 Observability & Validation
+Before decommissioning the project, I implemented a monitoring stack to observe the "Golden Signals":
+1. **Prometheus:** Configured to scrape metrics from the application pods.
+2. **Grafana:** Built dashboards to visualize real-time traffic and error rates.
+3. **OpenTelemetry:** Used for distributed tracing to find bottlenecks in service calls.
 
-### 2. Kubernetes Deployment
-Deploy to any K8s cluster (EKS, GKE, or Minikube):
-```bash
-kubectl apply -f ./kubernetes/complete-deploy.yaml
-```
 
-## 🧪 Custom Automation
-I have added custom maintenance scripts to handle the infrastructure lifecycle:
-* `health_check.py`: Validates service availability across the mesh.
-* `cleanup_devops.py`: Automated cleanup of Docker and K8s resources.
+
+## 🧹 Cost Optimization & Resource Hygiene
+A critical part of my DevOps practice is resource management. After validating the deployment:
+* I performed a **full teardown** of the EKS/K8s cluster and associated Load Balancers.
+* I used automated scripts (`cleanup_devops.py`) to ensure no orphan volumes or hidden costs remained.
+* **Result:** 100% successful deployment with zero ongoing cloud expenditure.
 
 ---
-*This project is maintained by Jishnu Jayachandran to showcase advanced skills in Cloud-Native Infrastructure and Site Reliability Engineering (SRE).*
+**Technical Skills Demonstrated:** Kubernetes, Docker, Python Automation, SRE Observability, Cloud Cost Management.
