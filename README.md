@@ -1,43 +1,47 @@
-# Microservices Infrastructure Lab
-**Maintained by: Jishnu Jayachandran**
+# Microservices Infrastructure Lab (DevOps Demo)
+**Project Lead: Jishnu Jayachandran**
 
 ## 🚀 Project Overview
-This repository contains a full-scale, polyglot microservices application designed to demonstrate modern DevOps principles. The project features 10+ microservices communicating via **gRPC**, managed through **Kubernetes**, and monitored with a full **Observability stack**.
+This is a comprehensive Microservices-based project designed to demonstrate production-grade DevOps practices. It features a polyglot architecture with services written in **Python, Go, Java, Node.js, C++, and Ruby**, utilizing **gRPC** for high-performance communication.
 
-## 🏗️ Architecture
-The system is designed with a distributed architecture to simulate a production-grade e-commerce environment:
-* **Frontend:** Web UI for browsing products and placing orders.
-* **Product Catalog:** Metadata management for inventory.
-* **Cart Service:** Temporary storage for user selections.
-* **Currency Service:** Real-time conversion logic.
-* **Payment & Shipping:** Fulfillment and transaction handling.
+## 🏗️ System Architecture
+The application is a web-based e-commerce platform consisting of the following core components:
 
-## 🛠️ Tech Stack & DevOps Tools
-* **Languages:** Python (Automation & Services), Go, Java, C++, Node.js.
-* **Orchestration:** Kubernetes (K8s) Manifests for automated scaling and management.
-* **Containerization:** Docker & Docker Compose for environment consistency.
-* **Observability:** OpenTelemetry, Prometheus, and Grafana for metrics and tracing.
-* **Infrastructure:** Linux/WSL2 Ubuntu environment.
+| Service | Language | Description |
+| :--- | :--- | :--- |
+| **Frontend** | Next.js | User-facing web interface. |
+| **Cart Service** | .NET | Manages user shopping carts. |
+| **Product Catalog** | Go | Provides product metadata. |
+| **Currency Service** | C++ | Handles real-time currency conversion. |
+| **Payment Service** | Node.js | Processes secure transactions. |
+| **Shipping Service** | Rust | Calculates shipping rates/tracking. |
+| **Email Service** | Ruby | Sends order confirmations. |
+| **Recommendation** | Python | Uses AI/ML logic for product suggestions. |
 
-## 🔧 Getting Started
-### Prerequisites
-* Docker Desktop or Docker Engine
-* kubectl (for Kubernetes deployments)
+## 🛠️ DevOps & Infrastructure Stack
+* **Containerization:** All services are Dockerized for consistency across environments.
+* **Orchestration:** Includes production-ready **Kubernetes (K8s)** manifests.
+* **CI/CD:** Integrated with GitHub Actions for automated testing and deployment.
+* **Observability:** Full stack integration with **OpenTelemetry**, **Prometheus**, **Grafana**, and **Jaeger** for distributed tracing.
+* **Messaging:** Uses **Kafka** for asynchronous communication between the checkout and accounting services.
 
-### Local Deployment (Docker Compose)
+## 🔧 Deployment Guide
+### 1. Local Development (Docker Compose)
+Run the entire stack locally with a single command:
 ```bash
 docker-compose up -d
 ```
 
-### Kubernetes Deployment
+### 2. Kubernetes Deployment
+Deploy to any K8s cluster (EKS, GKE, or Minikube):
 ```bash
 kubectl apply -f ./kubernetes/complete-deploy.yaml
 ```
 
-## 📈 Custom DevOps Utilities
-I have included custom Python scripts to manage the infrastructure lifecycle:
-* `health_check.py`: Automated validation of the microservices baseline.
-* `cleanup_devops.py`: Rapid environment tear-down and resource pruning.
+## 🧪 Custom Automation
+I have added custom maintenance scripts to handle the infrastructure lifecycle:
+* `health_check.py`: Validates service availability across the mesh.
+* `cleanup_devops.py`: Automated cleanup of Docker and K8s resources.
 
 ---
-*This lab is maintained by Jishnu Jayachandran as a showcase for End-to-End DevOps Engineering.*
+*This project is maintained by Jishnu Jayachandran to showcase advanced skills in Cloud-Native Infrastructure and Site Reliability Engineering (SRE).*
